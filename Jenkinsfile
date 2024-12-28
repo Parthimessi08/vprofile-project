@@ -15,7 +15,8 @@ pipeline {
 
         stage('BUILD'){
             steps {
-                sh 'mvn clean install -DskipTests'
+		sh 'rm -rf ~/.m2/repository/org/apache/maven/plugins/maven-war-plugin'
+                sh 'mvn clean install'
             }
             post {
                 success {

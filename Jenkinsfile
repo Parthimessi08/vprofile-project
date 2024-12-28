@@ -7,8 +7,8 @@ pipeline {
     }
 */
     environment {
-        registry = "imranvisualpath/vproappdock"
-        registryCredential = 'dockerhub'
+        registry = "parthimessi/kubectl"
+        registryCredential = 'docker-hub'
     }
 
     stages{
@@ -77,11 +77,11 @@ pipeline {
         stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
-                scannerHome = tool 'mysonarscanner4'
+                scannerHome = tool 'sonar6'
             }
 
             steps {
-                withSonarQubeEnv('sonar-pro') {
+                withSonarQubeEnv('sonarserver1') {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo \
                    -Dsonar.projectVersion=1.0 \

@@ -1,11 +1,11 @@
 pipeline {
 
     agent any
-/*
+	
 	tools {
-        maven "maven3"
+        maven "MAVEN3.9"
     }
-*/
+
     environment {
         registry = "parthimessi/kubectl"
         registryCredential = 'docker-hub'
